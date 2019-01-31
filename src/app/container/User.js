@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { users } from './Home';
-export default class User extends Component {
+import { connect } from 'react-redux';
+const getUserData = (state) => {
+    return {
+        users: state
+    }
+}
+export class User extends Component {
     filterUsers(id) {
-
+        const users = this.props.users;
         for (let i = 0; i < users.length; i++) {
             if (users[i].id == id) {
                 return users[i];
             }
         }
-
     }
     render() {
 
@@ -25,4 +29,5 @@ export default class User extends Component {
         )
     }
 }
+export default connect(getUserData)(User);
 

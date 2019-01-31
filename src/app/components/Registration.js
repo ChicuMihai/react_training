@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { users } from './data/users';
 
 export default class Registration extends Component {
     state = {
@@ -78,6 +79,21 @@ export default class Registration extends Component {
         }
 
         else this.setState({ confirmPassword: { ...this.state.confirmPassword, errors: "" } });
+
+        let usersData = JSON.parse(localStorage.getItem('users')) || [];
+        usersData.push({
+            id: users.length + 1,
+            firstName: this.state.firstName.value,
+            lastName: this.state.lastName.value,
+            email: this.state.email.value,
+            password: this.state.password.value
+
+        });
+
+
+        localStorage.setItem('users', JSON.stringify(usersData));
+
+
 
 
 

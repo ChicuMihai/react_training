@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { users } from './data/users';
+import { users } from '../components/data/users';
 import { Redirect } from 'react-router-dom';
 export default class Login extends Component {
     state = {
